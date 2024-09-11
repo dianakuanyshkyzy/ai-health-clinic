@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'; // Import Framer Motion
 import { MapPin, ThumbsUp, Trophy, Linkedin, Send, Phone, Menu } from 'lucide-react';
+import FAQSection from './FAQSection';
 
-// Component for smooth fade and shadow animation
 const Section = ({ children, className }) => {
   const [isInView, setIsInView] = useState(false);
 
@@ -11,7 +11,7 @@ const Section = ({ children, className }) => {
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0.1 } // Trigger when 10% of the section is in view
+      { threshold: 0.1 } 
     );
 
     const section = document.querySelector(`#${className}`);
@@ -39,7 +39,10 @@ const LandingPage = () => {
     <div className="font-sans bg-softWhite text-gray-800">
       {/* Header */}
       <header className="flex justify-between items-center p-4 bg-white shadow-md">
-        <div className="text-2xl font-bold text-lightSky">AI Health Clinic</div>
+      <div className="flex items-center space-x-2">
+        <img src="/aihealth.png" alt="AI Health Clinic Logo" className="w-8 h-auto" />
+        <div className="text-xl font-bold text-lightSky">AI Health Clinic</div>
+        </div>
         <nav className="hidden md:block">
           <ul className="flex space-x-4">
             <li className="hover:text-lightSky">About Us</li>
@@ -53,43 +56,175 @@ const LandingPage = () => {
         <button className="md:hidden">
           <Menu className="w-6 h-6 text-lightSky" />
         </button>
-      </header>
+      </header> 
+  
+  {/* Title */}
+  <section className="py-16 text-center bg-gradient-to-b from-blue-50 to-white">
+  {/* Title */}
+  <h1 className="text-4xl font-bold text-lightSky mb-4 animate-fadeIn">Your AI-powered Health Assistant</h1>
+  <p className="text-lg text-gray-700 mb-8 animate-fadeIn">
+    Consult top doctors, get health tips, and check symptoms with our AI tools.
+  </p>
 
-      {/* Hero Section */}
-      <Section className="hero-section bg-white">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-lightSky text-center">Your AI-powered Health Assistant</h1>
-        <p className="text-lg md:text-xl mb-4 text-center">Consult top doctors, get health tips, and check symptoms with our AI tools.</p>
-        <p className="text-lg text-center">Contact us: +1 123 345 4667</p>
-        <img src="/api/placeholder/1200/400" alt="Health services" className="w-full h-48 md:h-64 object-cover mt-6 rounded-md" />
-      </Section>
+  {/* Contact Information with Icon */}
+  <p className="flex items-center justify-center text-lg font-semibold text-gray-600 mb-8">
+  <img 
+      src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/contact-us-icon.png" 
+      alt="Contact Us Icon" 
+      className="h-auto w-6 mr-2" 
+    />
+    Contact us: <span className="text-lightSky font-bold ml-1">+8 701 234 5678</span>
+  </p>
+
+  {/* Call-to-Action Button */}
+  <a href="" className="mt-4 bg-lightSky text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-sky-700 transition-all duration-300 inline-block">
+    Schedule a Consultation
+  </a>
+
+  {/* Image Section with Overlay */}
+  <div className="relative mt-12 animate-fadeIn mx-auto w-3/4">
+  <img 
+    src="https://images.everydayhealth.com/homepage/health-topics-2.jpg?sfvrsn=757370ae_2" 
+    alt="Health Assistant" 
+    className="w-full h-auto rounded-lg shadow-lg" 
+  />
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-30"></div>
+</div>
+
+</section>
+
+
 
       {/* About the Clinic */}
-      <Section className="about-section">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-lightSky text-center">Welcome to AI Health Clinic</h2>
-        <p className="text-base md:text-lg mb-4 text-center">
-          We are an innovative healthcare service using AI to provide personalized medical consultations. Our team of experienced doctors collaborates with advanced AI technology to offer you the best in healthcare.
-        </p>
-      </Section>
+      <section className="text-center py-8 bg-white shadow-md mt-6">
+      <section className="py-12 bg-gradient-to-b from-blue-50 to-white text-center">
+  <h1 className="text-4xl font-bold text-lightSky mb-6 animate-fadeInUp">Welcome to AI Health Clinic</h1>
+  <p className="text-lg text-gray-700 mb-10 max-w-2xl mx-auto animate-fadeInUp">
+    We are an innovative healthcare service using AI to provide personalized medical consultations. Our team of experienced doctors collaborates with advanced AI technology to offer you the best in healthcare.
+  </p>
 
-      {/* Services */}
+  <h2 className="text-2xl font-semibold text-gray-700 mb-6 animate-fadeInUp">Our Core Services</h2>
+  
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto animate-fadeInUp">
+    <div className="p-6 border border-gray-300 rounded-lg shadow-sm hover:bg-lightSky hover:text-white transition-colors">
+      <h4 className="font-semibold">Personalized AI-driven Medical Consultations</h4>
+      <p className="text-sm">Detailed consultations based on your needs.</p>
+    </div>
+    <div className="p-6 border border-gray-300 rounded-lg shadow-sm hover:bg-lightSky hover:text-white transition-colors">
+      <h4 className="font-semibold">Specialist Doctor Appointments</h4>
+      <p className="text-sm">Connect with top experts in their fields.</p>
+    </div>
+    <div className="p-6 border border-gray-300 rounded-lg shadow-sm hover:bg-lightSky hover:text-white transition-colors">
+      <h4 className="font-semibold">Chronic Disease Management</h4>
+      <p className="text-sm">Manage chronic conditions effectively with our tailored plans.</p>
+    </div>
+    <div className="p-6 border border-gray-300 rounded-lg shadow-sm hover:bg-lightSky hover:text-white transition-colors">
+      <h4 className="font-semibold">Remote Healthcare Monitoring</h4>
+      <p className="text-sm">Monitor your health remotely with our AI technology.</p>
+    </div>
+  </div>
+
+  <button className="mt-10 bg-gradient-to-r from-lightSky to-sky-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300">
+    Book a Consultation
+  </button>
+</section>
+
+  <section className="py-12 bg-white">
+  <h2 className="text-3xl font-bold text-gray-700 text-center mb-8">How It Works</h2>
+
+  <div className="relative max-w-3xl mx-auto">
+    <div className="absolute w-1 bg-lightSky h-full left-1/2 transform -translate-x-1/2"></div>
+
+    {/* Step 1 */}
+    <div className="mb-8 flex justify-between items-center w-full">
+      <div className="w-5/12 text-right">
+        <h3 className="text-lg font-semibold text-gray-700">Book your consultation online.</h3>
+        <p className="text-gray-600 mt-2">Schedule your consultation at a time that suits you.</p>
+      </div>
+      <div className="w-1/12 flex justify-center items-center">
+        <div className="bg-lightSky rounded-full w-8 h-8 flex items-center justify-center">
+          <span className="text-white font-bold">1</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 2 */}
+    <div className="mb-8 flex justify-between items-center w-full flex-row-reverse">
+      <div className="w-5/12 text-left">
+        <h3 className="text-lg font-semibold text-gray-700">Provide your medical history or symptoms.</h3>
+        <p className="text-gray-600 mt-2">Share details about your condition or symptoms.</p>
+      </div>
+      <div className="w-1/12 flex justify-center items-center">
+        <div className="bg-lightSky rounded-full w-8 h-8 flex items-center justify-center">
+          <span className="text-white font-bold">2</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 3 */}
+    <div className="mb-8 flex justify-between items-center w-full">
+      <div className="w-5/12 text-right">
+        <h3 className="text-lg font-semibold text-gray-700">Get matched with an experienced doctor.</h3>
+        <p className="text-gray-600 mt-2">Our system matches you with the best doctor for your needs.</p>
+      </div>
+      <div className="w-1/12 flex justify-center items-center">
+        <div className="bg-lightSky rounded-full w-8 h-8 flex items-center justify-center">
+          <span className="text-white font-bold">3</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 4 */}
+    <div className="mb-8 flex justify-between items-center w-full flex-row-reverse">
+      <div className="w-5/12 text-left">
+        <h3 className="text-lg font-semibold text-gray-700">Receive a consultation via video call.</h3>
+        <p className="text-gray-600 mt-2">Speak directly to your doctor using our secure platform.</p>
+      </div>
+      <div className="w-1/12 flex justify-center items-center">
+        <div className="bg-lightSky rounded-full w-8 h-8 flex items-center justify-center">
+          <span className="text-white font-bold">4</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 5 */}
+    <div className="mb-8 flex justify-between items-center w-full">
+      <div className="w-5/12 text-right">
+        <h3 className="text-lg font-semibold text-gray-700">Follow up with personalized care recommendations.</h3>
+        <p className="text-gray-600 mt-2">Receive tailored advice and a personalized care plan.</p>
+      </div>
+      <div className="w-1/12 flex justify-center items-center">
+        <div className="bg-lightSky rounded-full w-8 h-8 flex items-center justify-center">
+          <span className="text-white font-bold">5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  {/* FAQ Section */}
+  <FAQSection />
+
+</section>
+
       <Section className="services-section bg-lightGray">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-lightSky">Our Services</h2>
         <p className="text-base md:text-lg mb-8 text-center">Explore the services we offer to help you maintain your health.</p>
         <div className="flex flex-col md:flex-row justify-center md:space-x-4 space-y-4 md:space-y-0">
           <a href="/ai-chatbot" className="bg-white p-4 rounded shadow w-full md:w-64 hover:shadow-lg transition-shadow">
-            <img src="https://via.placeholder.com/200x150" alt="AI Chatbot" className="w-full h-40 object-cover mb-4 rounded-md" />
+            <img src="https://img.freepik.com/free-vector/healthy-people-carrying-different-icons_53876-66139.jpg" alt="AI Chatbot" className="w-full h-40 object-cover mb-4 rounded-md" />
             <h3 className="text-xl font-semibold mb-2 text-lightSky">AI Symptom Checker</h3>
             <p>Check your symptoms and receive recommendations using our AI-powered chatbot.</p>
           </a>
 
           <a href="/doctor-profiles" className="bg-white p-4 rounded shadow w-full md:w-64 hover:shadow-lg transition-shadow">
-            <img src="https://via.placeholder.com/200x150" alt="Doctor Profiles" className="w-full h-40 object-cover mb-4 rounded-md" />
+            <img src="https://www.healthcareitnews.com/sites/hitn/files/Global%20healthcare_2.jpg" alt="Doctor Profiles" className="w-full h-40 object-cover mb-4 rounded-md" />
             <h3 className="text-xl font-semibold mb-2 text-lightSky">Doctor Profiles</h3>
             <p>Browse profiles of highly qualified doctors available for consultations.</p>
           </a>
 
           <a href="/ai-health-tips" className="bg-white p-4 rounded shadow w-full md:w-64 hover:shadow-lg transition-shadow">
-            <img src="https://via.placeholder.com/200x150" alt="Health Tips" className="w-full h-40 object-cover mb-4 rounded-md" />
+            <img src="https://cdn.shopify.com/s/files/1/0817/7988/4088/articles/2ZQTdBKFxvkLYhrtyeWOdg_8fa4b085-dafa-4196-9a61-36db54e3c457.jpg?v=1712945641" alt="Health Tips" className="w-full h-40 object-cover mb-4 rounded-md" />
             <h3 className="text-xl font-semibold mb-2 text-lightSky">AI-based Health Tips</h3>
             <p>Receive personalized health tips and advice tailored to your needs.</p>
           </a>
@@ -148,10 +283,7 @@ const LandingPage = () => {
         </div>
       </Section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 px-4 text-center">
-        <p>© 2024 AI Health Clinic. All Rights Reserved.</p>
-      </footer>
+     
     </div>
   );
 };
